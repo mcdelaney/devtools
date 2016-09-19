@@ -111,6 +111,7 @@ remote_download.github_remote <- function(x, quiet = FALSE) {
       type = "basic"
     )
   } else {
+    print("I DID NOT FIND THE AUTHENTICATION THINGS!!!!")
     auth <- NULL
   }
 
@@ -293,6 +294,9 @@ format.github_remote <- function(x, ...) {
 }
 
 download_github <- function(path, url, ...) {
+ print(path)
+ print(url)
+ print(...)
   request <- httr::GET(url, ...)
 
   if (httr::status_code(request) >= 400) {
