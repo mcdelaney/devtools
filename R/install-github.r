@@ -106,7 +106,7 @@ remote_download.github_remote <- function(x, quiet = FALSE) {
 
   if (!is.null(x$auth_token)) {
     auth <- httr::authenticate(
-      user = x$auth_token,
+      user = github_pat(),
       password = "x-oauth-basic",
       type = "basic"
     )
