@@ -111,8 +111,11 @@ remote_download.github_remote <- function(x, quiet = FALSE) {
       type = "basic"
     )
   } else {
-    print("I DID NOT FIND THE AUTHENTICATION THINGS!!!!")
-    auth <- github_pat()
+    auth <- httr::authenticate(
+      user = github_pat(),
+      password = "x-oauth-basic",
+      type = "basic"
+    )
   }
 
   if (github_has_remotes(x, auth))
